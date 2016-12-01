@@ -209,6 +209,7 @@ log4j.path=/tmp/quartz-job-store
 > * ``` <finalName>quartz-job-store-1</finalName> ```
 > * ``` <finalName>quartz-job-store-2</finalName> ```
 > * ``` <finalName>quartz-job-store-3</finalName> ```
+> 
 > log4j.properites路徑改為
 > * ``` log4j.path=/tmp/quartz-job-store-1 ```
 > * ``` log4j.path=/tmp/quartz-job-store-2 ```
