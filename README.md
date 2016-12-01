@@ -214,7 +214,8 @@ log4j.path=/tmp/quartz-job-store
 > * ``` log4j.path=/tmp/quartz-job-store-1 ```
 > * ``` log4j.path=/tmp/quartz-job-store-2 ```
 > * ``` log4j.path=/tmp/quartz-job-store-3 ```
-> 分三次打包，``` mvn package ```
+> 
+>　分三次打包，``` mvn package ```
 
 執行jar檔，當作是一個**Instance**
 
