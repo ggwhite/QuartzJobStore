@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.ggw.quartz" />
+
+	<bean name="simpleJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.ggw.quartz.job.SimpleJob" />
+		<property name="durability" value="true" />
+	</bean>
+
+	<bean id="simpleJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="simpleJobDetail" />
+		<property name="cronExpression" value="* * * * * ? *" />
+	</bean>
+	
+	<bean id="testJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.ggw.quartz.job.TestJob" />
+		<property name="durability" value="true" />
+		<property name="description" value="Invoke Sample Job service..." />
+	</bean>
+	
+	<bean id="testJobTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="testJobDetail" />
+		<property name="repeatInterval" value="2000" />
+		<property name="repeatCount" value="-1" />
+	</bean>
+	
+	<bean id="quartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="configLocation" value="classpath:quartz.properties" />
+		<property name="triggers">
+			<list>
+				<ref bean="testJobTrigger"/>
+				<ref bean="simpleJobTrigger"/>
+			</list>
+		</property>
+		<property name="jobDetails">
+			<list>
+				<ref bean="testJobDetail" />
+				<ref bean="simpleJobDetail" />
+			</list>
+		</property>
+	</bean>
+	
+</beans>
