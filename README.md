@@ -206,13 +206,13 @@ log4j.path=/tmp/quartz-job-store
 ```
 
 > 為了方便包成了3個jar檔，分別修該pom.xml的 ```<finalName>```為
-> ``` <finalName>quartz-job-store-1</finalName> ```
-> ``` <finalName>quartz-job-store-2</finalName> ```
-> ``` <finalName>quartz-job-store-3</finalName> ```
+> * ``` <finalName>quartz-job-store-1</finalName> ```
+> * ``` <finalName>quartz-job-store-2</finalName> ```
+> * ``` <finalName>quartz-job-store-3</finalName> ```
 > log4j.properites路徑改為
-> ``` log4j.path=/tmp/quartz-job-store-1 ```
-> ``` log4j.path=/tmp/quartz-job-store-2 ```
-> ``` log4j.path=/tmp/quartz-job-store-3 ```
+> * ``` log4j.path=/tmp/quartz-job-store-1 ```
+> * ``` log4j.path=/tmp/quartz-job-store-2 ```
+> * ``` log4j.path=/tmp/quartz-job-store-3 ```
 > 分三次打包，``` mvn package ```
 
 執行jar檔，當作是一個**Instance**
